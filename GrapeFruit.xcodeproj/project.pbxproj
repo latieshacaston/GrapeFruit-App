@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27D506A91C41638A00025033 /* VerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D506A81C41638A00025033 /* VerifyViewController.m */; };
+		5708B9871C400CB600360211 /* logInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5708B9861C400CB600360211 /* logInViewController.m */; };
+		5709D6D71C41A50E00952909 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5709D6D61C41A50E00952909 /* ProfileViewController.m */; };
+		5709D6DA1C41AECD00952909 /* LoginOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5709D6D91C41AECD00952909 /* LoginOptionViewController.m */; };
+		5709D6DD1C42B72D00952909 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5709D6DC1C42B72D00952909 /* EditProfileViewController.m */; };
+		5709D6E01C43088600952909 /* ProfilePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5709D6DF1C43088600952909 /* ProfilePhotoViewController.m */; };
+		576588F41C3EE820001BDE09 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 576588F31C3EE820001BDE09 /* main.m */; };
+		576588F71C3EE820001BDE09 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 576588F61C3EE820001BDE09 /* AppDelegate.m */; };
+		576588FA1C3EE820001BDE09 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576588F91C3EE820001BDE09 /* ViewController.m */; };
+		576588FD1C3EE820001BDE09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576588FB1C3EE820001BDE09 /* Main.storyboard */; };
+		576588FF1C3EE820001BDE09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 576588FE1C3EE820001BDE09 /* Assets.xcassets */; };
+		576589021C3EE820001BDE09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576589001C3EE820001BDE09 /* LaunchScreen.storyboard */; };
+		5765890D1C3EE820001BDE09 /* GrapeFruitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765890C1C3EE820001BDE09 /* GrapeFruitTests.m */; };
+		576589181C3EE820001BDE09 /* GrapeFruitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 576589171C3EE820001BDE09 /* GrapeFruitUITests.m */; };
+		576589271C3F4B54001BDE09 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576589261C3F4B54001BDE09 /* SignUpViewController.m */; };
+		9ECF240CA1D872E309A3838E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C50CA8787D9084FC8AEF76 /* Pods.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		576589091C3EE820001BDE09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 576588E71C3EE81F001BDE09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 576588EE1C3EE820001BDE09;
+			remoteInfo = GrapeFruit;
+		};
+		576589141C3EE820001BDE09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 576588E71C3EE81F001BDE09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 576588EE1C3EE820001BDE09;
+			remoteInfo = GrapeFruit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0DFE0C2C2AFD85A16DF85171 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1DB2E63B8F1E12EDB7DD55E6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		27D506A71C41638A00025033 /* VerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyViewController.h; sourceTree = "<group>"; };
+		27D506A81C41638A00025033 /* VerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyViewController.m; sourceTree = "<group>"; };
+		5708B9851C400CB600360211 /* logInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logInViewController.h; sourceTree = "<group>"; };
+		5708B9861C400CB600360211 /* logInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logInViewController.m; sourceTree = "<group>"; };
+		5709D6D51C41A50E00952909 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		5709D6D61C41A50E00952909 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		5709D6D81C41AECD00952909 /* LoginOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginOptionViewController.h; sourceTree = "<group>"; };
+		5709D6D91C41AECD00952909 /* LoginOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginOptionViewController.m; sourceTree = "<group>"; };
+		5709D6DB1C42B72D00952909 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		5709D6DC1C42B72D00952909 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
+		5709D6DE1C43088600952909 /* ProfilePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePhotoViewController.h; sourceTree = "<group>"; };
+		5709D6DF1C43088600952909 /* ProfilePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePhotoViewController.m; sourceTree = "<group>"; };
+		576588EF1C3EE820001BDE09 /* GrapeFruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrapeFruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		576588F31C3EE820001BDE09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		576588F51C3EE820001BDE09 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		576588F61C3EE820001BDE09 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		576588F81C3EE820001BDE09 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		576588F91C3EE820001BDE09 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		576588FC1C3EE820001BDE09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		576588FE1C3EE820001BDE09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		576589011C3EE820001BDE09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		576589031C3EE820001BDE09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		576589081C3EE820001BDE09 /* GrapeFruitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrapeFruitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5765890C1C3EE820001BDE09 /* GrapeFruitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrapeFruitTests.m; sourceTree = "<group>"; };
+		5765890E1C3EE820001BDE09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		576589131C3EE820001BDE09 /* GrapeFruitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrapeFruitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		576589171C3EE820001BDE09 /* GrapeFruitUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GrapeFruitUITests.m; sourceTree = "<group>"; };
+		576589191C3EE820001BDE09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		576589251C3F4B54001BDE09 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		576589261C3F4B54001BDE09 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		D4C50CA8787D9084FC8AEF76 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		576588EC1C3EE820001BDE09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ECF240CA1D872E309A3838E /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		576589051C3EE820001BDE09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		576589101C3EE820001BDE09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27D506A61C41637400025033 /* Verify */ = {
+			isa = PBXGroup;
+			children = (
+				27D506A71C41638A00025033 /* VerifyViewController.h */,
+				27D506A81C41638A00025033 /* VerifyViewController.m */,
+			);
+			name = Verify;
+			sourceTree = "<group>";
+		};
+		3F0B4870F591D2216A10C86F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1DB2E63B8F1E12EDB7DD55E6 /* Pods.debug.xcconfig */,
+				0DFE0C2C2AFD85A16DF85171 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5708B9841C400C8A00360211 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				5708B9851C400CB600360211 /* logInViewController.h */,
+				5708B9861C400CB600360211 /* logInViewController.m */,
+			);
+			name = LogIn;
+			sourceTree = "<group>";
+		};
+		5709D6D41C41A4F400952909 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5709D6D51C41A50E00952909 /* ProfileViewController.h */,
+				5709D6D61C41A50E00952909 /* ProfileViewController.m */,
+				5709D6DB1C42B72D00952909 /* EditProfileViewController.h */,
+				5709D6DC1C42B72D00952909 /* EditProfileViewController.m */,
+				5709D6DE1C43088600952909 /* ProfilePhotoViewController.h */,
+				5709D6DF1C43088600952909 /* ProfilePhotoViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		576588E61C3EE81F001BDE09 = {
+			isa = PBXGroup;
+			children = (
+				576588F11C3EE820001BDE09 /* GrapeFruit */,
+				5765890B1C3EE820001BDE09 /* GrapeFruitTests */,
+				576589161C3EE820001BDE09 /* GrapeFruitUITests */,
+				576588F01C3EE820001BDE09 /* Products */,
+				3F0B4870F591D2216A10C86F /* Pods */,
+				E97C2E505DEF288D3A4B78AE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		576588F01C3EE820001BDE09 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				576588EF1C3EE820001BDE09 /* GrapeFruit.app */,
+				576589081C3EE820001BDE09 /* GrapeFruitTests.xctest */,
+				576589131C3EE820001BDE09 /* GrapeFruitUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		576588F11C3EE820001BDE09 /* GrapeFruit */ = {
+			isa = PBXGroup;
+			children = (
+				5709D6D41C41A4F400952909 /* Profile */,
+				27D506A61C41637400025033 /* Verify */,
+				5708B9841C400C8A00360211 /* LogIn */,
+				576589281C3F5424001BDE09 /* Signup */,
+				576588F51C3EE820001BDE09 /* AppDelegate.h */,
+				576588F61C3EE820001BDE09 /* AppDelegate.m */,
+				576588F81C3EE820001BDE09 /* ViewController.h */,
+				576588F91C3EE820001BDE09 /* ViewController.m */,
+				576588FB1C3EE820001BDE09 /* Main.storyboard */,
+				576588FE1C3EE820001BDE09 /* Assets.xcassets */,
+				576589001C3EE820001BDE09 /* LaunchScreen.storyboard */,
+				576589031C3EE820001BDE09 /* Info.plist */,
+				576588F21C3EE820001BDE09 /* Supporting Files */,
+			);
+			path = GrapeFruit;
+			sourceTree = "<group>";
+		};
+		576588F21C3EE820001BDE09 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				576588F31C3EE820001BDE09 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5765890B1C3EE820001BDE09 /* GrapeFruitTests */ = {
+			isa = PBXGroup;
+			children = (
+				5765890C1C3EE820001BDE09 /* GrapeFruitTests.m */,
+				5765890E1C3EE820001BDE09 /* Info.plist */,
+			);
+			path = GrapeFruitTests;
+			sourceTree = "<group>";
+		};
+		576589161C3EE820001BDE09 /* GrapeFruitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				576589171C3EE820001BDE09 /* GrapeFruitUITests.m */,
+				576589191C3EE820001BDE09 /* Info.plist */,
+			);
+			path = GrapeFruitUITests;
+			sourceTree = "<group>";
+		};
+		576589281C3F5424001BDE09 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				576589251C3F4B54001BDE09 /* SignUpViewController.h */,
+				576589261C3F4B54001BDE09 /* SignUpViewController.m */,
+				5709D6D81C41AECD00952909 /* LoginOptionViewController.h */,
+				5709D6D91C41AECD00952909 /* LoginOptionViewController.m */,
+			);
+			name = Signup;
+			sourceTree = "<group>";
+		};
+		E97C2E505DEF288D3A4B78AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4C50CA8787D9084FC8AEF76 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		576588EE1C3EE820001BDE09 /* GrapeFruit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5765891C1C3EE820001BDE09 /* Build configuration list for PBXNativeTarget "GrapeFruit" */;
+			buildPhases = (
+				28777B95EDC30E1C41977AA0 /* Check Pods Manifest.lock */,
+				576588EB1C3EE820001BDE09 /* Sources */,
+				576588EC1C3EE820001BDE09 /* Frameworks */,
+				576588ED1C3EE820001BDE09 /* Resources */,
+				E1B561C6EC384F78A910D5A1 /* Embed Pods Frameworks */,
+				36EE8943A19AB895C19180B0 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GrapeFruit;
+			productName = GrapeFruit;
+			productReference = 576588EF1C3EE820001BDE09 /* GrapeFruit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		576589071C3EE820001BDE09 /* GrapeFruitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5765891F1C3EE820001BDE09 /* Build configuration list for PBXNativeTarget "GrapeFruitTests" */;
+			buildPhases = (
+				576589041C3EE820001BDE09 /* Sources */,
+				576589051C3EE820001BDE09 /* Frameworks */,
+				576589061C3EE820001BDE09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5765890A1C3EE820001BDE09 /* PBXTargetDependency */,
+			);
+			name = GrapeFruitTests;
+			productName = GrapeFruitTests;
+			productReference = 576589081C3EE820001BDE09 /* GrapeFruitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		576589121C3EE820001BDE09 /* GrapeFruitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 576589221C3EE820001BDE09 /* Build configuration list for PBXNativeTarget "GrapeFruitUITests" */;
+			buildPhases = (
+				5765890F1C3EE820001BDE09 /* Sources */,
+				576589101C3EE820001BDE09 /* Frameworks */,
+				576589111C3EE820001BDE09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				576589151C3EE820001BDE09 /* PBXTargetDependency */,
+			);
+			name = GrapeFruitUITests;
+			productName = GrapeFruitUITests;
+			productReference = 576589131C3EE820001BDE09 /* GrapeFruitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		576588E71C3EE81F001BDE09 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Mike;
+				TargetAttributes = {
+					576588EE1C3EE820001BDE09 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					576589071C3EE820001BDE09 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 576588EE1C3EE820001BDE09;
+					};
+					576589121C3EE820001BDE09 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 576588EE1C3EE820001BDE09;
+					};
+				};
+			};
+			buildConfigurationList = 576588EA1C3EE81F001BDE09 /* Build configuration list for PBXProject "GrapeFruit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 576588E61C3EE81F001BDE09;
+			productRefGroup = 576588F01C3EE820001BDE09 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				576588EE1C3EE820001BDE09 /* GrapeFruit */,
+				576589071C3EE820001BDE09 /* GrapeFruitTests */,
+				576589121C3EE820001BDE09 /* GrapeFruitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		576588ED1C3EE820001BDE09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				576589021C3EE820001BDE09 /* LaunchScreen.storyboard in Resources */,
+				576588FF1C3EE820001BDE09 /* Assets.xcassets in Resources */,
+				576588FD1C3EE820001BDE09 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		576589061C3EE820001BDE09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		576589111C3EE820001BDE09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28777B95EDC30E1C41977AA0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		36EE8943A19AB895C19180B0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1B561C6EC384F78A910D5A1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		576588EB1C3EE820001BDE09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				576588FA1C3EE820001BDE09 /* ViewController.m in Sources */,
+				27D506A91C41638A00025033 /* VerifyViewController.m in Sources */,
+				576588F71C3EE820001BDE09 /* AppDelegate.m in Sources */,
+				576589271C3F4B54001BDE09 /* SignUpViewController.m in Sources */,
+				5709D6D71C41A50E00952909 /* ProfileViewController.m in Sources */,
+				5709D6DD1C42B72D00952909 /* EditProfileViewController.m in Sources */,
+				576588F41C3EE820001BDE09 /* main.m in Sources */,
+				5708B9871C400CB600360211 /* logInViewController.m in Sources */,
+				5709D6DA1C41AECD00952909 /* LoginOptionViewController.m in Sources */,
+				5709D6E01C43088600952909 /* ProfilePhotoViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		576589041C3EE820001BDE09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5765890D1C3EE820001BDE09 /* GrapeFruitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5765890F1C3EE820001BDE09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				576589181C3EE820001BDE09 /* GrapeFruitUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5765890A1C3EE820001BDE09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 576588EE1C3EE820001BDE09 /* GrapeFruit */;
+			targetProxy = 576589091C3EE820001BDE09 /* PBXContainerItemProxy */;
+		};
+		576589151C3EE820001BDE09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 576588EE1C3EE820001BDE09 /* GrapeFruit */;
+			targetProxy = 576589141C3EE820001BDE09 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		576588FB1C3EE820001BDE09 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				576588FC1C3EE820001BDE09 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		576589001C3EE820001BDE09 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				576589011C3EE820001BDE09 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5765891A1C3EE820001BDE09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5765891B1C3EE820001BDE09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5765891D1C3EE820001BDE09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DB2E63B8F1E12EDB7DD55E6 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GrapeFruit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mike.GrapeFruit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5765891E1C3EE820001BDE09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DFE0C2C2AFD85A16DF85171 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GrapeFruit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mike.GrapeFruit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		576589201C3EE820001BDE09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GrapeFruitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mike.GrapeFruitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GrapeFruit.app/GrapeFruit";
+			};
+			name = Debug;
+		};
+		576589211C3EE820001BDE09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GrapeFruitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mike.GrapeFruitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GrapeFruit.app/GrapeFruit";
+			};
+			name = Release;
+		};
+		576589231C3EE820001BDE09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GrapeFruitUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mike.GrapeFruitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GrapeFruit;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		576589241C3EE820001BDE09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GrapeFruitUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Mike.GrapeFruitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GrapeFruit;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		576588EA1C3EE81F001BDE09 /* Build configuration list for PBXProject "GrapeFruit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5765891A1C3EE820001BDE09 /* Debug */,
+				5765891B1C3EE820001BDE09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5765891C1C3EE820001BDE09 /* Build configuration list for PBXNativeTarget "GrapeFruit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5765891D1C3EE820001BDE09 /* Debug */,
+				5765891E1C3EE820001BDE09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5765891F1C3EE820001BDE09 /* Build configuration list for PBXNativeTarget "GrapeFruitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				576589201C3EE820001BDE09 /* Debug */,
+				576589211C3EE820001BDE09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		576589221C3EE820001BDE09 /* Build configuration list for PBXNativeTarget "GrapeFruitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				576589231C3EE820001BDE09 /* Debug */,
+				576589241C3EE820001BDE09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 576588E71C3EE81F001BDE09 /* Project object */;
+}

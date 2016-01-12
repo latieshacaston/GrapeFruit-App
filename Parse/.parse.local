@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "GrapeFruit": {
+      "applicationId": "4heGEEWrpnG7dz7ymAQavBLXE0wRlIrFMmstnRPj"
+    },
+    "_default": {
+      "link": "GrapeFruit"
+    }
+  }
+}
