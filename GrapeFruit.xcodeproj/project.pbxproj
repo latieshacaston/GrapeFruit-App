@@ -22,6 +22,7 @@
 		5765890D1C3EE820001BDE09 /* GrapeFruitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5765890C1C3EE820001BDE09 /* GrapeFruitTests.m */; };
 		576589181C3EE820001BDE09 /* GrapeFruitUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 576589171C3EE820001BDE09 /* GrapeFruitUITests.m */; };
 		576589271C3F4B54001BDE09 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 576589261C3F4B54001BDE09 /* SignUpViewController.m */; };
+		57C140501C46A8CC001C5B40 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57C1404F1C46A8CC001C5B40 /* FriendsViewController.m */; };
 		9ECF240CA1D872E309A3838E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C50CA8787D9084FC8AEF76 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		576589191C3EE820001BDE09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		576589251C3F4B54001BDE09 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		576589261C3F4B54001BDE09 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		57C1404E1C46A8CC001C5B40 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		57C1404F1C46A8CC001C5B40 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
 		D4C50CA8787D9084FC8AEF76 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -169,6 +172,7 @@
 		576588F11C3EE820001BDE09 /* GrapeFruit */ = {
 			isa = PBXGroup;
 			children = (
+				57C1404D1C46A8AA001C5B40 /* Friends */,
 				5709D6D41C41A4F400952909 /* Profile */,
 				27D506A61C41637400025033 /* Verify */,
 				5708B9841C400C8A00360211 /* LogIn */,
@@ -221,6 +225,15 @@
 				5709D6D91C41AECD00952909 /* LoginOptionViewController.m */,
 			);
 			name = Signup;
+			sourceTree = "<group>";
+		};
+		57C1404D1C46A8AA001C5B40 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				57C1404E1C46A8CC001C5B40 /* FriendsViewController.h */,
+				57C1404F1C46A8CC001C5B40 /* FriendsViewController.m */,
+			);
+			name = Friends;
 			sourceTree = "<group>";
 		};
 		E97C2E505DEF288D3A4B78AE /* Frameworks */ = {
@@ -418,6 +431,7 @@
 				576589271C3F4B54001BDE09 /* SignUpViewController.m in Sources */,
 				5709D6D71C41A50E00952909 /* ProfileViewController.m in Sources */,
 				5709D6DD1C42B72D00952909 /* EditProfileViewController.m in Sources */,
+				57C140501C46A8CC001C5B40 /* FriendsViewController.m in Sources */,
 				576588F41C3EE820001BDE09 /* main.m in Sources */,
 				5708B9871C400CB600360211 /* logInViewController.m in Sources */,
 				5709D6DA1C41AECD00952909 /* LoginOptionViewController.m in Sources */,

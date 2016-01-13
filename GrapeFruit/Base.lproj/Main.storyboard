@@ -417,11 +417,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SsB-Ic-hox">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="12P-Bh-wK7">
-                            <connections>
-                                <action selector="logOutButton:" destination="g5a-8T-5rw" id="GwB-iR-O3C"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Log Out" id="12P-Bh-wK7">
+                                <connections>
+                                    <action selector="logOutButton:" destination="g5a-8T-5rw" id="GwB-iR-O3C"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Friends" id="1ZV-lC-v53">
+                                <connections>
+                                    <segue destination="DPw-nQ-2AS" kind="show" id="uDW-KU-7S7"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem title="Edit" id="TNr-O2-RTg">
                                 <connections>
@@ -577,6 +584,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Byk-Ph-FVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1828.5" y="1396.5"/>
+        </scene>
+        <!--Friends View Controller-->
+        <scene sceneID="rDq-c6-lgu">
+            <objects>
+                <viewController id="DPw-nQ-2AS" customClass="FriendsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lt1-hX-BGX"/>
+                        <viewControllerLayoutGuide type="bottom" id="DeZ-X6-PBL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GzI-Ai-SQD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G6q-U8-vRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1475" y="2127"/>
         </scene>
         <!--Profile Photo View Controller-->
         <scene sceneID="VJh-pP-mmO">
