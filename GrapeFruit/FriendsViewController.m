@@ -7,10 +7,13 @@
 //
 
 #import "FriendsViewController.h"
+#import <Parse/Parse.h>
+
 @import Contacts;
 @interface FriendsViewController ()
 
-@property (nonatomic, strong)CNContactStore *contactStore;
+//Array for user contact phone numbers
+@property (nonatomic, strong)NSMutableArray *phoneContacts;
 
 @end
 
@@ -19,20 +22,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
 }
 
 
 
 -(void)viewDidAppear:(BOOL)animated {
     
+//    for (NSString *d in self.phoneContacts) {
+//        NSLog(@" phone number %@", d);
+//    }
+    // query for parse phoneNumbers
+    
+    
+    //Initiate request for phoneBook access
     [self contactScan];
     
 }
 
 
-
+ // ask for permission
 - (void) contactScan
 {
     if ([CNContactStore class]) {
@@ -54,6 +62,8 @@
     }
 }
 
+
+//request contacts with proper keys
 -(void)getAllContact
 {
     if([CNContactStore class])
@@ -63,54 +73,29 @@
         CNContactStore* addressBook = [[CNContactStore alloc]init];
         [addressBook containersMatchingPredicate:[CNContainer predicateForContainersWithIdentifiers: @[addressBook.defaultContainerIdentifier]] error:&contactError];
         
-        NSArray * keysToFetch =@[CNContactEmailAddressesKey, CNContactPhoneNumbersKey, CNContactFamilyNameKey, CNContactGivenNameKey, CNContactPostalAddressesKey];
+//        NSArray * keysToFetch =@[CNContactEmailAddressesKey, CNContactPhoneNumbersKey, CNContactFamilyNameKey, CNContactGivenNameKey, CNContactPostalAddressesKey];
+        
+        //we only want phone numbers for now
+        NSArray * keysToFetch =@[CNContactPhoneNumbersKey];
+   
         CNContactFetchRequest * request = [[CNContactFetchRequest alloc]initWithKeysToFetch:keysToFetch];
-//        BOOL success =
         [addressBook enumerateContactsWithFetchRequest:request error:&contactError usingBlock:^(CNContact * __nonnull contact, BOOL * __nonnull stop){
             
-                //            [self parseContactWithContact:contact];
-                
-                
-                NSString * firstName =  contact.givenName;
-                NSString * lastName =  contact.familyName;
+            
                 NSString * phone = [[contact.phoneNumbers valueForKey:@"value"] valueForKey:@"digits"];
-                NSString * email = [contact.emailAddresses valueForKey:@"value"];
-//                    NSArray * addrArr = [self parseAddressWithContac:contact];
-                NSLog(@"phone numbers are %@", phone);
-                
-                
-                
-         
+            
+            [self.phoneContacts addObject:phone];
+            NSLog(@" adding phone %@", phone);
+            
+            
            
         }];
         
-        NSLog( @"fetch %@", keysToFetch);
+        
     }
 }
 
 
-
-- (void)parseContactWithContact :(CNContact* )contact
-{
-    NSString * firstName =  contact.givenName;
-    NSString * lastName =  contact.familyName;
-    NSString * phone = [[contact.phoneNumbers valueForKey:@"value"] valueForKey:@"digits"];
-    NSString * email = [contact.emailAddresses valueForKey:@"value"];
-//    NSArray * addrArr = [self parseAddressWithContac:contact];
-}
-//
-//- (NSMutableArray *)parseAddressWithContac: (CNContact *)contact
-//{
-//    NSMutableArray * addrArr = [[NSMutableArray alloc]init];
-//    CNPostalAddressFormatter * formatter = [[CNPostalAddressFormatter alloc]init];
-//    NSArray * addresses = (NSArray*)[contact.postalAddresses valueForKey:@"value"];
-//    if (addresses.count > 0) {
-//        for (CNPostalAddress* address in addresses) {
-//            [addrArr addObject:[formatter stringFromPostalAddress:address]];
-//        }
-//    }
-//    return addrArr;
-//}
 
 
 
