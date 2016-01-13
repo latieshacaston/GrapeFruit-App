@@ -10,7 +10,12 @@
 #import <Parse/Parse.h>
 
 @import Contacts;
-@interface FriendsViewController ()
+@interface FriendsViewController () {
+    
+    //Array to store the parse querryin
+    NSArray *arrayFromParseQuery;
+    
+}
   
 
 
@@ -97,10 +102,9 @@
         if (phoneRequestComplete) {
             
             //run parse query
-            for (NSString *d in forNumber) {
-                NSLog(@" number %@", d);
+            [self parseQuery];
             
-            }
+            
             
         }
         
@@ -108,14 +112,60 @@
 }
 
 
-//#pragma mark - parse query  
-//-(void)parseQuery {
-//    
-//    PFQuery *parseUserPhone
-//    
-//    
-//    
-//}
+#pragma mark - parse query  
+-(void)parseQuery {
+    
+   
+    
+    //assign class to querry
+//    PFQuery *parseUserPhone = [PFQuery queryWithClassName:@"User"];
+    
+    PFQuery *parseUserPhone = [PFUser query];
+    
+    
+    //give object to compare to
+    
+    NSString *userPhoneNumber = [[PFUser currentUser] objectForKey:@"PhoneNumber"];
+    NSLog(@"my phone is %@", userPhoneNumber);
+    
+    
+    //set parameters
+    
+    [parseUserPhone whereKeyExists:@"PhoneNumber"];
+    
+    
+    [parseUserPhone findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        
+        
+        
+        if (!error) {
+            arrayFromParseQuery = [[NSArray alloc]initWithArray:objects];
+            NSLog(@" running query");
+            
+           
+            
+            for (PFUser *d in objects) {
+                
+                NSString *phone  = [d objectForKey:@"PhoneNumber"];
+                
+                NSLog(@" number %@", phone);
+                
+            }
+
+        }
+        
+        
+    }];
+    
+    
+    //run query
+    
+    
+    
+    
+    
+}
 
 
 
