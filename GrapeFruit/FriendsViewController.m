@@ -11,9 +11,8 @@
 
 @import Contacts;
 @interface FriendsViewController ()
+  
 
-//Array for user contact phone numbers
-@property (nonatomic, strong)NSMutableArray *phoneContacts;
 
 @end
 
@@ -26,13 +25,13 @@
 
 
 
+
+
+
+
 -(void)viewDidAppear:(BOOL)animated {
     
-//    for (NSString *d in self.phoneContacts) {
-//        NSLog(@" phone number %@", d);
-//    }
-    // query for parse phoneNumbers
-    
+
     
     //Initiate request for phoneBook access
     [self contactScan];
@@ -79,23 +78,44 @@
         NSArray * keysToFetch =@[CNContactPhoneNumbersKey];
    
         CNContactFetchRequest * request = [[CNContactFetchRequest alloc]initWithKeysToFetch:keysToFetch];
-        [addressBook enumerateContactsWithFetchRequest:request error:&contactError usingBlock:^(CNContact * __nonnull contact, BOOL * __nonnull stop){
-            
-            
+        
+        // array for phone storage
+        NSMutableArray *forNumber = [[NSMutableArray alloc]init];
+        
+        //creat a boolean value to let us know when operation is complete
+       BOOL phoneRequestComplete = [addressBook enumerateContactsWithFetchRequest:request error:&contactError usingBlock:^(CNContact * __nonnull contact, BOOL * __nonnull stop){
+           
+           
                 NSString * phone = [[contact.phoneNumbers valueForKey:@"value"] valueForKey:@"digits"];
-            
-            [self.phoneContacts addObject:phone];
-            NSLog(@" adding phone %@", phone);
-            
-            
+           
+                [forNumber addObject:phone];
+
            
         }];
         
+        //loop through complete array (parse query will go here)
+        if (phoneRequestComplete) {
+            
+            //run parse query
+            for (NSString *d in forNumber) {
+                NSLog(@" number %@", d);
+            
+            }
+            
+        }
         
     }
 }
 
 
+//#pragma mark - parse query  
+//-(void)parseQuery {
+//    
+//    PFQuery *parseUserPhone
+//    
+//    
+//    
+//}
 
 
 
@@ -104,14 +124,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
