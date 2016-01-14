@@ -12,8 +12,11 @@
 @import Contacts;
 @interface FriendsViewController () {
     
-    //Array to store the parse querryin
+    //Array to store the parse querry in
     NSArray *arrayFromParseQuery;
+    
+     //Array to store the phone querry in
+    NSArray *arrayFromPhoneQuery;
     
 }
   
@@ -101,6 +104,9 @@
         //loop through complete array (parse query will go here)
         if (phoneRequestComplete) {
             
+           //init array
+            
+            arrayFromPhoneQuery = [[NSArray alloc]initWithArray:forNumber];
             //run parse query
             [self parseQuery];
             
@@ -143,10 +149,17 @@
             arrayFromParseQuery = [[NSArray alloc]initWithArray:objects];
             NSLog(@" running query");
             
-           
+            //compare array of contact from parse to array of contacts from phone
+            
+            for (int i = 0; i < objects.count; i ++) {
+                PFUser *user = objects[i];
+                
+                
+            }
             
             for (PFUser *d in objects) {
                 
+            
                 NSString *phone  = [d objectForKey:@"PhoneNumber"];
                 
                 NSLog(@" number %@", phone);
