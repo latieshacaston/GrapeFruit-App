@@ -94,14 +94,26 @@
        BOOL phoneRequestComplete = [addressBook enumerateContactsWithFetchRequest:request error:&contactError usingBlock:^(CNContact * __nonnull contact, BOOL * __nonnull stop){
            
            
-                NSString * phone = [[contact.phoneNumbers valueForKey:@"value"] valueForKey:@"digits"];
+       NSArray * phoneStringArray = [[contact.phoneNumbers valueForKey:@"value"] valueForKey:@"digits"];
            
-                [forNumber addObject:phone];
+//                CNPhoneNumber * phoneString = [[contact.phoneNumbers valueForKey:@"value"] valueForKey:@"digits"];
+
+           for (NSString *phone in phoneStringArray) {
+               
+               
+               [forNumber addObject:phone];
+           }
+           
+           
+//           NSLog(@"phonestring is %@", phoneString);
+//
+//           
+//                [forNumber addObject:phoneString];
 
            
         }];
         
-        //loop through complete array (parse query will go here)
+//        loop through complete array (parse query will go here)
         if (phoneRequestComplete) {
             
            //init array
@@ -121,18 +133,24 @@
 #pragma mark - parse query  
 -(void)parseQuery {
     
-   
+   // clean up phone array
+    
+    
+    
+    
+  
+    
+    
     
     //assign class to querry
-//    PFQuery *parseUserPhone = [PFQuery queryWithClassName:@"User"];
     
     PFQuery *parseUserPhone = [PFUser query];
     
     
     //give object to compare to
     
-    NSString *userPhoneNumber = [[PFUser currentUser] objectForKey:@"PhoneNumber"];
-    NSLog(@"my phone is %@", userPhoneNumber);
+//    NSString *userPhoneNumber = [[PFUser currentUser] objectForKey:@"PhoneNumber"];
+//    NSLog(@"my phone is %@", userPhoneNumber);
     
     
     //set parameters
@@ -146,25 +164,51 @@
         
         
         if (!error) {
-            arrayFromParseQuery = [[NSArray alloc]initWithArray:objects];
-            NSLog(@" running query");
+            //get phone from parse
             
-            //compare array of contact from parse to array of contacts from phone
+            // compare to phone from local storage
             
-            for (int i = 0; i < objects.count; i ++) {
-                PFUser *user = objects[i];
+            long objectCount = objects.count;
+            long localPhoneCount = arrayFromPhoneQuery.count;
+            
+            while (objectCount > 0) {
                 
+                NSLog(@"objectCount is %ld  localPhoneCount is %ld", objectCount, localPhoneCount);
+                
+                //phone contact
+                NSString *localPhone = arrayFromPhoneQuery[localPhoneCount];
+                
+                //parse contact
+                PFObject *parseObject = objects[objectCount];
+                NSString *ParsePhone = [parseObject objectForKey:@"PhoneNumber"];
+                
+                
+                
+                if ([localPhone isEqualToString:ParsePhone]){
+                    
+                    NSLog(@"found one %@ and %@", localPhone, ParsePhone);
+                    
+                
+                    
+                }else if (objectCount == 0 || localPhoneCount == 0 ) {
+                    NSLog(@"breaking");
+                    break;
+                }
+                objectCount -= 1;
+                localPhoneCount -=1;
                 
             }
             
-            for (PFUser *d in objects) {
-                
             
-                NSString *phone  = [d objectForKey:@"PhoneNumber"];
-                
-                NSLog(@" number %@", phone);
-                
-            }
+            
+
+            
+            
+            
+            
+            
+            
+        
 
         }
         
