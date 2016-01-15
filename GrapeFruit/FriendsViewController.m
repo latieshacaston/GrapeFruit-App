@@ -179,25 +179,25 @@
                 NSString *localPhone = arrayFromPhoneQuery[localPhoneCount];
                 
                 //parse contact
-                PFObject *parseObject = objects[objectCount];
+                
+                PFObject *parseObject = objects[objectCount-1];
+                
                 NSString *ParsePhone = [parseObject objectForKey:@"PhoneNumber"];
                 
-                
-                
-                if ([localPhone isEqualToString:ParsePhone]){
+                for (long localNum = localPhoneCount -1; localNum >= 0; localNum--) {
                     
-                    NSLog(@"found one %@ and %@", localPhone, ParsePhone);
+                    //phone contact
+                    NSString *localPhone = arrayFromPhoneQuery[localNum];
                     
-                
+                    NSLog(@"%@",localPhone);
                     
-                }else if (objectCount == 0 || localPhoneCount == 0 ) {
-                    NSLog(@"breaking");
-                    break;
-                }
-                objectCount -= 1;
-                localPhoneCount -=1;
-                
-            }
+                    
+                    if ([localPhone isEqualToString:ParsePhone]){
+                        
+                        NSLog(@"found one %@ and %@", localPhone, ParsePhone);
+                        
+                    }
+                    objectCount -= 1;
             
             
             
@@ -205,9 +205,9 @@
             
             
             
+                }
             
-            
-            
+            }
         
 
         }
