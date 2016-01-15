@@ -132,12 +132,6 @@
 
 #pragma mark - parse query  
 -(void)parseQuery {
-    
-   // clean up phone array
-    
-    
-    
-    
   
     
     
@@ -145,12 +139,6 @@
     //assign class to querry
     
     PFQuery *parseUserPhone = [PFUser query];
-    
-    
-    //give object to compare to
-    
-//    NSString *userPhoneNumber = [[PFUser currentUser] objectForKey:@"PhoneNumber"];
-//    NSLog(@"my phone is %@", userPhoneNumber);
     
     
     //set parameters
@@ -164,64 +152,62 @@
         
         
         if (!error) {
-            //get phone from parse
-            
-            // compare to phone from local storage
-            
-            long objectCount = objects.count;
-            long localPhoneCount = arrayFromPhoneQuery.count;
-            
-            while (objectCount > 0) {
-                
-                NSLog(@"objectCount is %ld  localPhoneCount is %ld", objectCount, localPhoneCount);
-                
-                //phone contact
-                NSString *localPhone = arrayFromPhoneQuery[localPhoneCount];
-                
-                //parse contact
-                
-                PFObject *parseObject = objects[objectCount-1];
-                
-                NSString *ParsePhone = [parseObject objectForKey:@"PhoneNumber"];
-                
-                for (long localNum = localPhoneCount -1; localNum >= 0; localNum--) {
-                    
-                    //phone contact
-                    NSString *localPhone = arrayFromPhoneQuery[localNum];
-                    
-                    NSLog(@"%@",localPhone);
-                    
-                    
-                    if ([localPhone isEqualToString:ParsePhone]){
-                        
-                        NSLog(@"found one %@ and %@", localPhone, ParsePhone);
-                        
-                    }
-                    objectCount -= 1;
-            
-            
-            
-
-            
-            
-            
-                }
-            
-            }
         
-
+            arrayFromParseQuery = [[NSArray alloc]initWithArray:objects];
+            [self arrayComparrison];
         }
         
         
     }];
     
     
-    //run query
+    
+
     
     
     
+}
+
+#pragma mark - array comparrison method
+-(void)arrayComparrison {
     
+    //get phone from parse
     
+    // compare to phone from local storage
+  
+    
+    long objectCount = arrayFromParseQuery.count;
+    long localPhoneCount = arrayFromPhoneQuery.count;
+    
+    while (objectCount > 0) {
+        
+        NSLog(@"objectCount is %ld  localPhoneCount is %ld", objectCount, localPhoneCount);
+     
+        PFObject *parseObject = arrayFromParseQuery[objectCount-1];
+        
+        NSString *ParsePhone = [parseObject objectForKey:@"PhoneNumber"];
+        
+        for (long localNum = localPhoneCount -1; localNum >= 0; localNum--) {
+            
+            //phone contact
+            NSString *localPhone = arrayFromPhoneQuery[localNum];
+            
+            NSLog(@"%@",localPhone);
+            
+            
+            if ([localPhone isEqualToString:ParsePhone]){
+                
+                NSLog(@"found one %@ and %@", localPhone, ParsePhone);
+                
+            }
+        }
+        objectCount -= 1;
+        //localPhoneCount -=1;
+        
+        
+    }
+
+
 }
 
 
