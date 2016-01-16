@@ -18,8 +18,13 @@
      //Array to store the phone querry in
     NSArray *arrayFromPhoneQuery;
     
+    //Relation Query Array
+    NSArray *friendsFromRelationQuery;
+    
+    
+
 }
-  
+
 
 
 @end
@@ -29,23 +34,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-}
-
-
-
-
-
-
-
--(void)viewDidAppear:(BOOL)animated {
-    
-
-    
     //Initiate request for phoneBook access
     [self contactScan];
     
 }
 
+
+
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    
+    NSLog(@"view loaded");
+    
+    
+    
+    
+    
+}
+
+
+#pragma mark - ask for and scan contacts
 
  // ask for permission
 - (void) contactScan
@@ -192,22 +202,37 @@
             //phone contact
             NSString *localPhone = arrayFromPhoneQuery[localNum];
             
-            NSLog(@"%@",localPhone);
             
             
             if ([localPhone isEqualToString:ParsePhone]){
+                
+                
+                
+                // creat pfrelation?
+                
+                PFRelation *friendRelation = [[PFUser currentUser] relationForKey:@"Friends"];
+                [friendRelation addObject:parseObject];
+                
+                // This may cause too many threads to be saved in background
+                [[PFUser currentUser] saveInBackground];
+                
+            
+                //refresh the view
+                [self viewDidAppear:YES];
+              
+                
                 
                 NSLog(@"found one %@ and %@", localPhone, ParsePhone);
                 
             }
         }
         objectCount -= 1;
-        //localPhoneCount -=1;
+
         
         
     }
-
-
+   
+ 
 }
 
 
