@@ -34,6 +34,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    
     //Initiate request for phoneBook access
     [self contactScan];
     
@@ -46,8 +48,30 @@
 -(void)viewWillAppear:(BOOL)animated {
     
     
-    NSLog(@"view loaded");
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"Friends"];
+    PFQuery *friendsQuery = [relation query];
     
+    
+    NSLog(@"view loaded");
+    // pfrelationquery
+    
+    [friendsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        if(!error) {
+            
+           //initialize Array
+            friendsFromRelationQuery = [[NSArray alloc]initWithArray:objects];
+            
+            //reload collection view
+            
+            
+        }else {
+            
+            NSLog(@"there is an error");
+        }
+        
+        
+    }];
     
     
     
@@ -114,11 +138,7 @@
                [forNumber addObject:phone];
            }
            
-           
-//           NSLog(@"phonestring is %@", phoneString);
-//
-//           
-//                [forNumber addObject:phoneString];
+
 
            
         }];
