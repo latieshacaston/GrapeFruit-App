@@ -53,19 +53,18 @@
     PFQuery *friendsQuery = [relation query];
     
     
-    NSLog(@"view loaded");
     // pfrelationquery
     
     [friendsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         if(!error) {
-            
+        
             //initialize Array
             friendsFromRelationQuery = [[NSArray alloc]initWithArray:objects];
             
-            NSLog(@"%@",friendsFromRelationQuery);
-            
             //reload collection view
+            
+            [self.collectionView reloadData];
             
             
         }else {
@@ -168,7 +167,6 @@
     
     
     
-    
     //assign class to querry
     
     PFQuery *parseUserPhone = [PFUser query];
@@ -188,6 +186,8 @@
             
             arrayFromParseQuery = [[NSArray alloc]initWithArray:objects];
             [self arrayComparrison];
+        }else {
+            NSLog(@"bummer, parseQuery can't run");
         }
         
         
@@ -204,13 +204,18 @@
 #pragma mark - array comparrison method
 -(void)arrayComparrison {
     
+    
     //get phone from parse
     
     // compare to phone from local storage
-    
-    
+ 
     long objectCount = arrayFromParseQuery.count;
     long localPhoneCount = arrayFromPhoneQuery.count;
+    
+    
+    //setup PFRelation
+    
+    PFRelation *friendRelation = [[PFUser currentUser] relationForKey:@"Friends"];
     
     while (objectCount > 0) {
         
@@ -219,7 +224,7 @@
         PFObject *parseObject = arrayFromParseQuery[objectCount-1];
         
         NSString *ParsePhone = [parseObject objectForKey:@"PhoneNumber"];
-        
+       
         for (long localNum = localPhoneCount -1; localNum >= 0; localNum--) {
             
             //phone contact
@@ -229,23 +234,10 @@
             
             if ([localPhone isEqualToString:ParsePhone]){
                 
+                // add the contact as a relation to parse
                 
-                
-                // creat pfrelation?
-                
-                PFRelation *friendRelation = [[PFUser currentUser] relationForKey:@"Friends"];
-                [friendRelation addObject:parseObject];
-                
-                // This may cause too many threads to be saved in background
-                [[PFUser currentUser] saveInBackground];
-                
-                
-                //refresh the view
-                [self viewDidAppear:YES];
-                
-                
-                
-                NSLog(@"found one %@ and %@", localPhone, ParsePhone);
+                 [friendRelation addObject:parseObject];
+              
                 
             }
         }
@@ -255,7 +247,17 @@
         
     }
     
+    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (!error) {
+            [self  viewWillAppear:YES];
+        }else {
+            
+            NSLog(@"sorry there was an error");
+        }
+    }];
+
     
+
 }
 
 #pragma mark - collection view
@@ -271,10 +273,14 @@ NSString *cellId = @"Cell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath;
 {
     CustomCell *cell = (CustomCell *)[cv dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    NSLog(@"%@", friendsFromRelationQuery);
-    PFObject *friendObject = friendsFromRelationQuery[0];
-    NSLog(@"%@",friendObject);
+//    PFObject *friendObject = friendsFromRelationQuery[0];
+    
+    PFObject *friendObject = [friendsFromRelationQuery objectAtIndex:indexPath.row];
+    
+    
+    
     cell.label.text = [NSString stringWithFormat:@"%@", [friendObject objectForKey:@"FirstName"]];
+    
     
     // load the image for this cell
     NSString *imageToLoad = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
