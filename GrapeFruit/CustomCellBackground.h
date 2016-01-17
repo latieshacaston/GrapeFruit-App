@@ -1,5 +1,5 @@
 //
-//  FriendsCollectionViewController.h
+//  CustomCellBackground.h
 //  GrapeFruit
 //
 //  Created by Siming Yuan on 1/16/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendsCollectionViewController : UICollectionViewController
+@interface CustomCellBackground : UIView
 
 @end

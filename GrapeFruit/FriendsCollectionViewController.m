@@ -1,98 +1,293 @@
 //
-//  FriendsCollectionViewController.m
+//  FriendsViewController.m
 //  GrapeFruit
 //
-//  Created by Michael Metzger  on 1/12/16.
+//  Created by Aileen Taboy on 1/13/16.
 //  Copyright © 2016 Mike. All rights reserved.
 //
 
 #import "FriendsCollectionViewController.h"
+#import <Parse/Parse.h>
+#import "CustomCell.h"
 
-@interface FriendsCollectionViewController ()
+@import Contacts;
+@interface FriendsCollectionViewController () {
+    
+    //Array to store the parse querry in
+    NSArray *arrayFromParseQuery;
+    
+    //Array to store the phone querry in
+    NSArray *arrayFromPhoneQuery;
+    
+    //Relation Query Array
+    NSArray *friendsFromRelationQuery;
+    
+    
+    
+}
+
+
 
 @end
 
 @implementation FriendsCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // Do any additional setup after loading the view.
+    //Initiate request for phoneBook access
+    [self contactScan];
+    
 }
+
+
+
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"Friends"];
+    PFQuery *friendsQuery = [relation query];
+    
+    
+    NSLog(@"view loaded");
+    // pfrelationquery
+    
+    [friendsQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        if(!error) {
+            
+            //initialize Array
+            friendsFromRelationQuery = [[NSArray alloc]initWithArray:objects];
+            
+            NSLog(@"%@",friendsFromRelationQuery);
+            
+            //reload collection view
+            
+            
+        }else {
+            
+            NSLog(@"there is an error");
+        }
+        
+        
+    }];
+    
+    
+    
+    
+}
+
+
+#pragma mark - ask for and scan contacts
+
+// ask for permission
+- (void) contactScan
+{
+    if ([CNContactStore class]) {
+        //ios9 or later
+        CNEntityType entityType = CNEntityTypeContacts;
+        if( [CNContactStore authorizationStatusForEntityType:entityType] == CNAuthorizationStatusNotDetermined)
+        {
+            CNContactStore * contactStore = [[CNContactStore alloc] init];
+            [contactStore requestAccessForEntityType:entityType completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                if(granted){
+                    [self getAllContact];
+                }
+            }];
+        }
+        else if( [CNContactStore authorizationStatusForEntityType:entityType]== CNAuthorizationStatusAuthorized)
+        {
+            [self getAllContact];
+        }
+    }
+}
+
+
+//request contacts with proper keys
+-(void)getAllContact
+{
+    if([CNContactStore class])
+    {
+        //iOS 9 or later
+        NSError* contactError;
+        CNContactStore* addressBook = [[CNContactStore alloc]init];
+        [addressBook containersMatchingPredicate:[CNContainer predicateForContainersWithIdentifiers: @[addressBook.defaultContainerIdentifier]] error:&contactError];
+        
+        //        NSArray * keysToFetch =@[CNContactEmailAddressesKey, CNContactPhoneNumbersKey, CNContactFamilyNameKey, CNContactGivenNameKey, CNContactPostalAddressesKey];
+        
+        //we only want phone numbers for now
+        NSArray * keysToFetch =@[CNContactPhoneNumbersKey];
+        
+        CNContactFetchRequest * request = [[CNContactFetchRequest alloc]initWithKeysToFetch:keysToFetch];
+        
+        // array for phone storage
+        NSMutableArray *forNumber = [[NSMutableArray alloc]init];
+        
+        //creat a boolean value to let us know when operation is complete
+        BOOL phoneRequestComplete = [addressBook enumerateContactsWithFetchRequest:request error:&contactError usingBlock:^(CNContact * __nonnull contact, BOOL * __nonnull stop){
+            
+            
+            NSArray * phoneStringArray = [[contact.phoneNumbers valueForKey:@"value"] valueForKey:@"digits"];
+            
+            //                CNPhoneNumber * phoneString = [[contact.phoneNumbers valueForKey:@"value"] valueForKey:@"digits"];
+            
+            for (NSString *phone in phoneStringArray) {
+                
+                
+                [forNumber addObject:phone];
+            }
+            
+            
+            
+            
+        }];
+        
+        //        loop through complete array (parse query will go here)
+        if (phoneRequestComplete) {
+            
+            //init array
+            
+            arrayFromPhoneQuery = [[NSArray alloc]initWithArray:forNumber];
+            //run parse query
+            [self parseQuery];
+            
+            
+            
+        }
+        
+    }
+}
+
+
+#pragma mark - parse query
+-(void)parseQuery {
+    
+    
+    
+    
+    //assign class to querry
+    
+    PFQuery *parseUserPhone = [PFUser query];
+    
+    
+    //set parameters
+    
+    [parseUserPhone whereKeyExists:@"PhoneNumber"];
+    
+    
+    [parseUserPhone findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        
+        
+        
+        
+        if (!error) {
+            
+            arrayFromParseQuery = [[NSArray alloc]initWithArray:objects];
+            [self arrayComparrison];
+        }
+        
+        
+    }];
+    
+    
+    
+    
+    
+    
+    
+}
+
+#pragma mark - array comparrison method
+-(void)arrayComparrison {
+    
+    //get phone from parse
+    
+    // compare to phone from local storage
+    
+    
+    long objectCount = arrayFromParseQuery.count;
+    long localPhoneCount = arrayFromPhoneQuery.count;
+    
+    while (objectCount > 0) {
+        
+        NSLog(@"objectCount is %ld  localPhoneCount is %ld", objectCount, localPhoneCount);
+        
+        PFObject *parseObject = arrayFromParseQuery[objectCount-1];
+        
+        NSString *ParsePhone = [parseObject objectForKey:@"PhoneNumber"];
+        
+        for (long localNum = localPhoneCount -1; localNum >= 0; localNum--) {
+            
+            //phone contact
+            NSString *localPhone = arrayFromPhoneQuery[localNum];
+            
+            
+            
+            if ([localPhone isEqualToString:ParsePhone]){
+                
+                
+                
+                // creat pfrelation?
+                
+                PFRelation *friendRelation = [[PFUser currentUser] relationForKey:@"Friends"];
+                [friendRelation addObject:parseObject];
+                
+                // This may cause too many threads to be saved in background
+                [[PFUser currentUser] saveInBackground];
+                
+                
+                //refresh the view
+                [self viewDidAppear:YES];
+                
+                
+                
+                NSLog(@"found one %@ and %@", localPhone, ParsePhone);
+                
+            }
+        }
+        objectCount -= 1;
+        
+        
+        
+    }
+    
+    
+}
+
+#pragma mark - collection view
+
+//CustomCell identifier
+NSString *cellId = @"Cell";
+
+- (NSInteger)collectionView: (UICollectionView *)view numberOfItemsInSection:(NSInteger)section
+{
+    return [friendsFromRelationQuery count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath;
+{
+    CustomCell *cell = (CustomCell *)[cv dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    NSLog(@"%@", friendsFromRelationQuery);
+    PFObject *friendObject = friendsFromRelationQuery[0];
+    NSLog(@"%@",friendObject);
+    cell.label.text = [NSString stringWithFormat:@"%@", [friendObject objectForKey:@"FirstName"]];
+    
+    // load the image for this cell
+    NSString *imageToLoad = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:imageToLoad];
+    
+    return cell;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-#pragma mark <UICollectionViewDataSource>
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell
-    
-    return cell;
-}
-
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end
