@@ -41,7 +41,6 @@
     [super viewDidLoad];
     
     
-    [self loadUserData];
 
     
     
@@ -51,7 +50,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     
-    
+    [self loadUserData];
     
     
 }
@@ -129,8 +128,13 @@
     PFFile *imageFile = [self.userData objectForKey:@"ProfilePhoto"];
     
     [imageFile getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        
         if (!error) {
+            
+            
              self.profilePhoto.image = [UIImage imageWithData:data];
+        }else {
+            NSLog(@"hey there is an error");
         }
     }];
     

@@ -59,7 +59,6 @@
 
 -(void)loadUserData {
     
-    
     //Create PFObject for current user
     self.userData = [PFUser currentUser];
     

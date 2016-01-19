@@ -29,7 +29,6 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-//    self.view.frame=CGRectMake(0, 0,375, 300);
 
     
     
