@@ -285,6 +285,10 @@ NSString *cellId = @"Cell";
     // load the image for this cell
     NSString *imageToLoad = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
     cell.imageView.image = [UIImage imageNamed:imageToLoad];
+    cell.imageView.layer.cornerRadius = cell.imageView.frame.size.width / 2;
+    cell.imageView.layer.borderWidth = 3.0f;
+    cell.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    cell.imageView.clipsToBounds = YES;
     
     return cell;
 }
