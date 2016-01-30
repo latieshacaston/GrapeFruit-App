@@ -275,20 +275,37 @@ NSString *cellId = @"Cell";
     CustomCell *cell = (CustomCell *)[cv dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
 //    PFObject *friendObject = friendsFromRelationQuery[0];
     
+    
+    
+    
     PFObject *friendObject = [friendsFromRelationQuery objectAtIndex:indexPath.row];
     
+    PFFile *userImage = [friendObject objectForKey:@"ProfilePhoto"];
+    
+    
+    [userImage getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        
+        if (!error) {
+            // load the image for this cell
+//            NSString *imageToLoad = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+            cell.imageView.image = [UIImage imageWithData:data];
+            cell.imageView.layer.cornerRadius = cell.imageView.frame.size.width / 2;
+            cell.imageView.layer.borderWidth = 3.0f;
+            cell.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+            cell.imageView.clipsToBounds = YES;
+        }
+        
+        
+    }];
     
     
     cell.label.text = [NSString stringWithFormat:@"%@", [friendObject objectForKey:@"FirstName"]];
     
     
-    // load the image for this cell
-    NSString *imageToLoad = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:imageToLoad];
-    cell.imageView.layer.cornerRadius = cell.imageView.frame.size.width / 2;
-    cell.imageView.layer.borderWidth = 3.0f;
-    cell.imageView.layer.borderColor = [UIColor whiteColor].CGColor;
-    cell.imageView.clipsToBounds = YES;
+    
+    
+    
+   
     
     return cell;
 }
